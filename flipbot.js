@@ -1,10 +1,10 @@
 const Discord = require("discord.js");
-const client = new Discord.Client({disableEveryone: true});
+const client = new Discord.Client();
 const moment = require("moment");  
+const fs = require("fs");      
 const dateFormat = require('dateformat');
 const Canvas = require("canvas");
 let profile = JSON.parse(fs.readFileSync("profile.json", "utf8"))
-const fs = require('fs');
 
 client.on('ready', () => {
 
@@ -284,6 +284,7 @@ f!role bots [role name] ➾ لاعطاء رتبة للبوتات فقط
 f!role [@mention] [role name] ➾ لاعطاء رتبة لعضو
 f!cv [room name] ➾ لعمل روم صوتيه
 f!ct [room name] ➾ لعمل روم كتابيه
+f!delet [room name] ➾ لمسح روم
 f!ccolors [numbers] ➾ صنع الوان بعدد
 f!role @user <rank> ➾ تعطي رتبه لشخص
 f!roleremove @user <rank> ➾ تشيل رتبه من شخص
@@ -323,6 +324,7 @@ f!role bots [role name] ➾ to give role for bots only
 f!role [@mention] [role name] ➾ to give role fo someone
 f!cv [room name] ➾ to create new voice channel
 f!ct [room name] ➾ to create new text channel
+f!delet [room name] ➾ to delet any room
 f!ccolors [numbers] ➾ to create colored roles
 f!role @user <rank> ➾ to give rank to member
 f!roleremove @user <rank> ➾ to remove rank from member
