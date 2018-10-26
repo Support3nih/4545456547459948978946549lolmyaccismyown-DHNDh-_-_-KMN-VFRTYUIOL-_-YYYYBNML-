@@ -1338,7 +1338,7 @@ client.on('message',async msg => {
 Year = currentTime.getFullYear(),
 Month = currentTime.getMonth() + 1,
 Dat = currentTime.getDate()
-      time.setName(`FireShop | Members :  → ${client.users.size} ← `);
+      time.setName(`FireShop :  → ${client.users.size} ← `);
  },1000);
   });
   }
