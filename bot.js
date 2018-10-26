@@ -1321,4 +1321,28 @@ client.on('guildMemberAdd', member=> {
   member.addRole(member.guild.roles.find("name","🔥 Fire 🔥"));
   });
 
+/// member cont ///
+
+client.on('message',async msg => {
+  var p = "f!";
+  if(msg.content.startsWith(p + "user")) {
+  if(!msg.guild.member(msg.author).hasPermissions('MANAGE_CHANNELS')) return msg.reply('❌ **play away from here**');
+  if(!msg.guild.member(client.user).hasPermissions(['MANAGE_CHANNELS'])) return msg.reply('❌ **sry i cant**');
+  msg.guild.createChannel(`يتم تحضير الروم :[]` , 'voice').then(time => {
+    time.overwritePermissions(msg.guild.id, {
+      CONNECT: false,
+      SPEAK: false
+    });
+  setInterval(() => {
+      var currentTime = new Date(),
+Year = currentTime.getFullYear(),
+Month = currentTime.getMonth() + 1,
+Dat = currentTime.getDate()
+      time.setName(`FireShop | Members :  → ${client.users.size} ← `);
+ },1000);
+  });
+  }
+ 
+});
+
 client.login("NTAyOTYzNjU2Nzc1MDQxMDQ1.Dq_m1A.iRBi2OHnmGnP_u1NhrYU7P4sttc");
