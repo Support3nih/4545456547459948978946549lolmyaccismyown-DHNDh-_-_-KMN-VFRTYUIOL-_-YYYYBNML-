@@ -1267,7 +1267,7 @@ if (message.author.id !== "408374252291751976") return;
 if (message.content.startsWith(PREFIX + 'setstream')) {
 client.user.setGame(argresult, "https://www.twitch.tv/darkknite55");
    console.log('test' + argresult);
-  message.channel.sendMessage(`Streaming: **${argresult}`)
+  message.channel.sendMessage(`Streaming: **${argresult}**`)
 }
 
 if (message.content.startsWith(PREFIX + 'setname')) {
