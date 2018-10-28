@@ -1,51 +1,15 @@
 const Discord = require("discord.js");
-const client = new Discord.Client();  
+const client = new Discord.Client();
 
 client.on('ready', () => {
 
 console.log('iiFireGame');
 
-client.user.setGame(`FireShop | f!help`,'https://www.twitch.tv/TEST-Broadcast');
+client.user.setGame(`I am done`,'https://www.twitch.tv/TEST-Broadcast');
 
 });
-
-
-/// bot ///
-
-client.on('message', message => {
-  if (message.content.startsWith("f!bot")) {
-  message.channel.send({
-      embed: new Discord.RichEmbed()
-          .setColor('RANDOM')
-          .setTitle('FireShop Info ')
-          .addField('``Uptime``', timeCon(process.uptime()), true)
-          .addField('``Ping Is``' , `${Date.now() - message.createdTimestamp}` + '``Ms``', true)
-          .addField('``Guild Count``', client.guilds.size, true)
-          .addField('``Bot In channel``' , `${client.channels.size}` , true)
-          .addField('``Users rout``' ,`${client.users.size}` , true)
-          .addField('``Name Bot Or tag``' , `${client.user.tag}` , true)
-          .addField('``Bot Id``' , `${client.user.id}` , true)
-          .setFooter('FireShop / iiFireGamerYT')
-  })
-}
-});
-
-
-function timeCon(time) {
-  let days = Math.floor(time % 31536000 / 86400)
-  let hours = Math.floor(time % 31536000 % 86400 / 3600)
-  let minutes = Math.floor(time % 31536000 % 86400 % 3600 / 60)
-  let seconds = Math.round(time % 31536000 % 86400 % 3600 % 60)
-  days = days > 9 ? days : '0' + days
-  hours = hours > 9 ? hours : '0' + hours
-  minutes = minutes > 9 ? minutes : '0' + minutes
-  seconds = seconds > 9 ? seconds : '0' + seconds
-  return `${days > 0 ? `${days}:` : ''}${(hours || days) > 0 ? `${hours}:` : ''}${minutes}:${seconds}`
-}
-
 
 /// help ///
-
 
 client.on("message", message => {
   var prefix = "f!";
@@ -92,8 +56,7 @@ client.on("message", message => {
  f!help-gn-en ⇏ General commands
  
  f!help-ad-en ⇏ Server management commands
-             
- f!help-mu-en ⇏ Music commands
+            
  
  
  `)
@@ -238,7 +201,37 @@ message.author.sendEmbed(embed)
 }
 });
 
-/// avatar ///
+/// f!bot ///
+
+client.on('message', message => {
+  if (message.content.startsWith("f!bot")) {
+  message.channel.send({
+      embed: new Discord.RichEmbed()
+          .setColor('RANDOM')
+          .setTitle('FireShop Info ')
+          .addField('``Uptime``', timeCon(process.uptime()), true)
+          .addField('``Ping Is``' , `${Date.now() - message.createdTimestamp}` + '``Ms``', true)
+          .addField('``Guild Count``', client.guilds.size, true)
+          .addField('``Bot In channel``' , `${client.channels.size}` , true)
+          .addField('``Name Bot Or tag``' , `${client.user.tag}` , true)
+          .setFooter('FireShop / iiFireGamerYT')
+  })
+}
+});
+
+function timeCon(time) {
+  let days = Math.floor(time % 31536000 / 86400)
+  let hours = Math.floor(time % 31536000 % 86400 / 3600)
+  let minutes = Math.floor(time % 31536000 % 86400 % 3600 / 60)
+  let seconds = Math.round(time % 31536000 % 86400 % 3600 % 60)
+  days = days > 9 ? days : '0' + days
+  hours = hours > 9 ? hours : '0' + hours
+  minutes = minutes > 9 ? minutes : '0' + minutes
+  seconds = seconds > 9 ? seconds : '0' + seconds
+  return `${days > 0 ? `${days}:` : ''}${(hours || days) > 0 ? `${hours}:` : ''}${minutes}:${seconds}`
+}
+
+/// f!avatar ///
 
 client.on('message', message => {
   if (message.content.startsWith("f!avatar")) {
@@ -250,14 +243,14 @@ if(!message.channel.guild) return;
         var client = message.author;
     }
       const embed = new Discord.RichEmbed()
-                         .addField('Requested by:', "<@" + message.author.id + ">")
+                         .addField('✅ Requested by:', "<@" + message.author.id + ">")
       .setColor(000000)
       .setImage(`${client.avatarURL}`)
     message.channel.sendEmbed(embed);
   }
 });
 
-/// ccolors //
+/// f!ccolors ///
 
 client.on('message', ra3d => {
   var prefix = "f!";
@@ -275,8 +268,9 @@ client.on('message', ra3d => {
                 }
               }
          });
-		 
-/// server image ///
+
+
+/// f!server-image ///
 
 client.on("message", message => {
   var prefix = "f!";
@@ -286,7 +280,7 @@ client.on("message", message => {
     if(message.content === prefix + "server-image"){ 
         const embed = new Discord.RichEmbed()
 
-    .setTitle(`This is  ** ${message.guild.name} **  Photo !`)
+    .setTitle(`✅ This is  ** ${message.guild.name} **  Photo !`)
 .setAuthor(message.author.username, message.guild.iconrURL)
   .setColor(0x164fe3)
   .setImage(message.guild.iconURL)
@@ -297,7 +291,7 @@ client.on("message", message => {
     }
 });
 
-/// clear ///
+/// f!clear ///
 
 client.on("message", message => {
   var prefix = "f!";
@@ -310,7 +304,7 @@ msg = parseInt();
 
 message.channel.fetchMessages({limit: msg}).then(messages => message.channel.bulkDelete(messages)).catch(console.error);
 message.channel.sendMessage("", {embed: {
-title: "``تــم مسح الشات ``",
+title: "``✅ تــم مسح الشات ``",
 color: 0x06DF00,
 footer: {
 
@@ -325,19 +319,21 @@ footer: {
 
 client.on('message',function(message) {
   if(!message.channel.guild) return undefined;
-  const swearWords = ["fuck","Fuck","ass","Ass","dick","Dick","طيز","احا","كسمك"];
+  const swearWords = ["fuck","Fuck","ass","Ass","dick","Dick","طيز","كسمك"];
   if (swearWords.some(word => message.content.includes(word)) ) {
     message.delete()
     message.reply("**ممنوع السب**"); 
   }
 });
 
+/// f!roll ///
+
 client.on('message', function(message) {
   var prefix = "f!";
   if(message.content.startsWith(prefix + 'roll')) {
       let args = message.content.split(" ").slice(1);
       if (!args[0]) {
-          message.channel.send('**Put a number**');
+          message.channel.send('**⚠ Put a number**');
           return;
           }
   message.channel.send(Math.floor(Math.random() * args.join(' ')));
@@ -347,6 +343,8 @@ client.on('message', function(message) {
       }
   }
 });
+
+/// f!server ///
 
 /// server ///
 
@@ -375,8 +373,8 @@ client.on('message', message => {
        message.channel.send({embed:xNiTRoZ});
    }
   });
-  
-/// ping ///
+
+/// f!ping ///
 
 client.on('message', message => {
   if(!message.channel.guild) return;
@@ -404,6 +402,12 @@ client.on('message', msg => {
 
 client.on('message', msg => {
   if (msg.content === 'hello') {
+    msg.reply('**hello have nice time :heart:**');
+  }
+});
+
+client.on('message', msg => {
+  if (msg.content === 'hi') {
     msg.reply('**hello have nice time :heart:**');
   }
 });
