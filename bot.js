@@ -5,7 +5,7 @@ client.on('ready', () => {
 
 console.log('iiFireGame');
 
-client.user.setGame(`I am done`,'https://www.twitch.tv/TEST-Broadcast');
+client.user.setGame(`FireShop | f!help`,'https://www.twitch.tv/TEST-Broadcast');
 
 });
 
