@@ -639,7 +639,7 @@ var bc = new
    .addField('المرسل', message.author.username)
    .addField('الرسالة', args)
    .setThumbnail(message.author.avatarURL)
-   .setFooter(FireShop, client.user.avatarURL);
+   .setFooter('FireShop', client.user.avatarURL);
 m.send({ embed: bc })
 msg.delete();
 })
